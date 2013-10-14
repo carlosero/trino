@@ -1,0 +1,38 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  time:
+    formats:
+      default: 'Fecha'
+
+  actions:
+    new: "Nuevo"
+    destroy: "Eliminar"
+    edit: "Editar"
+    confirm: "¿Está seguro?"
+    actions: "Acciones"
+    cancel: "Cancelar"
+    save: "Guardar"
+    back: "Volver"
+
+  titles:
+    clients: 'Clientes'
+
+  models:
+    clients:
+      name: "Nombre"
+      email: "Correo"
+      phone: "Teléfono"
+      status: "Estado"
+      agenda: "Agenda"
+      comment: "Comentarios Generales"
+      statuses:
+        closed: "Venta Cerrada"
+        waiting: "Espera de Documentos"
+        no_contact: "Sin Contactar"
+        negotiate: "Por Negociar"
+        contacted: "Contacto Efectivo"
+
+  dict:
+    select_any: 'Seleccione'

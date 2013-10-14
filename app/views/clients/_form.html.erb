@@ -1,0 +1,48 @@
+<%= form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label t('models.clients.name'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.email'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.phone'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.status'), :class => 'control-label' %>
+    <div class="controls">
+      <%= select_tag "client[status]",
+          options_for_select(Client::STATUS_FOR_SELECT, @client.status),
+          :prompt => t("dict.select_any")
+      %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.agenda'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :agenda, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.comment'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :comment, :class => 'text_area', :rows => "3" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit t('actions.save'), :class => 'btn btn-primary' %>
+    <%= link_to t('actions.cancel'),
+                clients_path, :class => 'btn' %>
+  </div>
+<% end %>
+
