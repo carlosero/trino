@@ -19,9 +19,8 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   database: trino
-  username: root
-  password: mypass
+  password: trino
   pool: 5
   timeout: 5000
