@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include ActionView::Helpers::TagHelper
   include ActionView::Context 
+  include NavbarHelper
 
   protect_from_forgery
 
@@ -28,4 +29,5 @@ class ApplicationController < ActionController::Base
     flash_messages.join("\n").html_safe
   end
   helper_method :flashes_tag
+  helper_method :menu_text
 end
