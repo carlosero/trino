@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   include ActionView::Helpers::TagHelper
-  include ActionView::Context 
-  include NavbarHelper
+  include ActionView::Context
 
   protect_from_forgery
 
