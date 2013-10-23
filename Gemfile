@@ -27,8 +27,7 @@ end
 
 
 group :production do
-#  gem 'pg'
-gem 'mysql2'
+  gem 'pg'
 end
 # Use unicorn as the web server
 # gem 'unicorn'
