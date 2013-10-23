@@ -7,6 +7,8 @@ gem 'devise'
 
 
 gem 'json'
+gem "twitter-bootstrap-rails"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -15,8 +17,6 @@ group :assets do
   # gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem "therubyracer"
-  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem "twitter-bootstrap-rails"
 end
 
 gem 'jquery-rails'
@@ -27,7 +27,8 @@ end
 
 
 group :production do
-  gem 'pg'
+#  gem 'pg'
+gem 'mysql2'
 end
 # Use unicorn as the web server
 # gem 'unicorn'
