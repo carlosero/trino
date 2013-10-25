@@ -7,8 +7,8 @@
   <thead>
     <tr>
       <th><%= t('models.clients.name') %></th>
-      <th><%= t('models.clients.phone') %></th>
-      <th><%= t('models.clients.agenda') %></th>
+      <th><%= t('models.clients.document_id') %></th>
+      <th><%= t('models.clients.expiration_date') %></th>
       <th><%= t('actions.actions') %></th>
     </tr>
   </thead>
@@ -16,8 +16,8 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= link_to client.name, client_path(client) %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.agenda %></td>
+        <td><%= client.document_id %></td>
+        <td><%= client.expiration_date %></td>
         <td>
           <%= link_to t('actions.edit'), edit_client_path(client), :class => 'btn btn-mini' %>
           <%= link_to t('actions.destroy'),

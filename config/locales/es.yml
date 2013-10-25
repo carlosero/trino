@@ -18,6 +18,7 @@ es:
 
   titles:
     clients: 'Clientes'
+    vehicle_data: 'Datos del Vehículo'
 
   models:
     clients:
@@ -27,12 +28,26 @@ es:
       status: "Estado"
       agenda: "Agenda"
       comment: "Comentarios Generales"
+      document_id: "Cédula"
+      marital_status: "Estado Civil"
+      marital_statuses:
+        single: "Soltero"
+        married: "Casado"
+        divorced: "Divorciado"
+        widowed: "Viudo"
+      expiration_date: "Vencimiento"
       statuses:
         closed: "Venta Cerrada"
         waiting: "Espera de Documentos"
         no_contact: "Sin Contactar"
         negotiate: "Por Negociar"
         contacted: "Contacto Efectivo"
+
+    vehicles:
+      brand: "Marca"
+      model: "Modelo"
+      version: "Versión"
+      year: "Año"
 
   dict:
     select_any: 'Seleccione'

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  client: 
+  brand: MyString
+  model: MyString
+  version: MyString
+  year: MyString
+
+two:
+  client: 
+  brand: MyString
+  model: MyString
+  version: MyString
+  year: MyString

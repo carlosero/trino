@@ -6,6 +6,27 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label t('models.clients.document_id'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :document_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.marital_status'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:marital_status,
+                options_for_select(Client::MARITAL_STATUS, @client.marital_status),
+                :prompt => t("dict.select_any"))
+      %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label t('models.clients.marital_status'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :marital_status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label t('models.clients.email'), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :email, :class => 'text_field' %>
@@ -33,11 +54,49 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label t('models.clients.expiration_date'), :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :expiration_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label t('models.clients.comment'), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :comment, :class => 'text_area', :rows => "3" %>
     </div>
   </div>
+  <hr/>
+  <h3><%= t('titles.vehicle_data') %></h2>
+  <%= f.fields_for :vehicle do |fc| %>
+    <div class="control-group">
+      <%= fc.label t('models.vehicles.brand'), :class => 'control-label' %>
+      <div class="controls">
+        <%= fc.text_field :brand, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= fc.label t('models.vehicles.model'), :class => 'control-label' %>
+      <div class="controls">
+        <%= fc.text_field :model, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= fc.label t('models.vehicles.version'), :class => 'control-label' %>
+      <div class="controls">
+        <%= fc.text_field :version, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= fc.label t('models.vehicles.year'), :class => 'control-label' %>
+      <div class="controls">
+        <%= fc.select :year,
+            options_for_select(Vehicle.years_for_select, @client.vehicle.year),
+            :prompt => t("dict.select_any")
+        %>
+      </div>
+    </div>
+
+  <% end %>
 
   <div class="form-actions">
     <%= f.submit t('actions.save'), :class => 'btn btn-primary' %>
@@ -45,4 +104,3 @@
                 clients_path, :class => 'btn' %>
   </div>
 <% end %>
-
