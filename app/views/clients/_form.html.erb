@@ -1,18 +1,18 @@
 <%= form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label t('models.clients.name'), :class => 'control-label' %>
+    <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.document_id'), :class => 'control-label' %>
+    <%= f.label :document_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :document_id, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.marital_status'), :class => 'control-label' %>
+    <%= f.label :marital_status, :class => 'control-label' %>
     <div class="controls">
       <%= f.select(:marital_status,
                 options_for_select(Client::MARITAL_STATUS, @client.marital_status),
@@ -21,19 +21,19 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.email'), :class => 'control-label' %>
+    <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :email, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.phone'), :class => 'control-label' %>
+    <%= f.label :phone, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :phone, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.status'), :class => 'control-label' %>
+    <%= f.label :status, :class => 'control-label' %>
     <div class="controls">
       <%= select_tag "client[status]",
           options_for_select(Client::STATUS_FOR_SELECT, @client.status),
@@ -42,19 +42,21 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.agenda'), :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :agenda, :class => 'text_field' %>
+    <%= f.label :agenda, :class => 'control-label' %>
+    <div class="controls date" id="datetimepicker" data-date-format="dd-mm-yyyy HH:ii p">
+      <%= f.text_field :agenda, :class => 'text_field form_datetime', :value => @client.agenda %>
+      <span class="add-on" style="cursor: pointer;"><i class="icon-th"></i></span>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.expiration_date'), :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :expiration_date, :class => 'text_field' %>
+    <%= f.label :expiration_date, :class => 'control-label' %>
+    <div class="controls date" id="datetimepicker2" data-date-format="dd-mm-yyyy HH:ii p">
+      <%= f.text_field :expiration_date, :class => 'text_field form_datetime', :value => @client.expiration_date %>
+      <span class="add-on"  style="cursor: pointer;"><i class="icon-th"></i></span>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label t('models.clients.comment'), :class => 'control-label' %>
+    <%= f.label :comment, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :comment, :class => 'text_area', :rows => "3" %>
     </div>
@@ -63,25 +65,25 @@
   <h3><%= t('titles.vehicle_data') %></h2>
   <%= f.fields_for :vehicle do |fc| %>
     <div class="control-group">
-      <%= fc.label t('models.vehicles.brand'), :class => 'control-label' %>
+      <%= fc.label t('activerecord.attributes.vehicle.brand'), :class => 'control-label' %>
       <div class="controls">
         <%= fc.text_field :brand, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= fc.label t('models.vehicles.model'), :class => 'control-label' %>
+      <%= fc.label t('activerecord.attributes.vehicle.model'), :class => 'control-label' %>
       <div class="controls">
         <%= fc.text_field :model, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= fc.label t('models.vehicles.version'), :class => 'control-label' %>
+      <%= fc.label t('activerecord.attributes.vehicle.version'), :class => 'control-label' %>
       <div class="controls">
         <%= fc.text_field :version, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= fc.label t('models.vehicles.year'), :class => 'control-label' %>
+      <%= fc.label t('activerecord.attributes.vehicle.year'), :class => 'control-label' %>
       <div class="controls">
         <%= fc.select :year,
             options_for_select(Vehicle.years_for_select, @client.vehicle.year),

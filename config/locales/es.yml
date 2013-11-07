@@ -3,34 +3,34 @@
 
 es:
   activerecord:
-      attributes:
-        client:
-          name: "Nombre"
-          document_id: "Cédula"
-          email: "Correo"
-          phone: "Teléfono"
-          status: "Estado"
-          agenda: "Agenda"
-          comment: "Comentarios Generales"
-          marital_status: "Estado Civil"
-          marital_statuses:
-            single: "Soltero"
-            married: "Casado"
-            divorced: "Divorciado"
-            widowed: "Viudo"
-          expiration_date: "Vencimiento"
-          statuses:
-            closed: "Venta Cerrada"
-            waiting: "Espera de Documentos"
-            no_contact: "Sin Contactar"
-            negotiate: "Por Negociar"
-            contacted: "Contacto Efectivo"
+    attributes:
+      client:
+        name: "Nombre"
+        document_id: "Cédula"
+        email: "Correo"
+        phone: "Teléfono"
+        status: "Estado"
+        agenda: "Agenda"
+        comment: "Comentarios Generales"
+        marital_status: "Estado Civil"
+        marital_statuses:
+          single: "Soltero"
+          married: "Casado"
+          divorced: "Divorciado"
+          widowed: "Viudo"
+        expiration_date: "Vencimiento"
+        statuses:
+          closed: "Venta Cerrada"
+          waiting: "Espera de Documentos"
+          no_contact: "Sin Contactar"
+          negotiate: "Por Negociar"
+          contacted: "Contacto Efectivo"
 
-        vehicle:
-          brand: "Marca"
-          model: "Modelo"
-          version: "Versión"
-          year: "Año"
+      vehicle:
+        brand: "Marca"
+        model: "Modelo"
+        version: "Versión"
+        year: "Año"
 
   time:
     formats:
