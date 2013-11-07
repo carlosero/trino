@@ -6,9 +6,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= t('models.clients.name') %></th>
-      <th><%= t('models.clients.document_id') %></th>
-      <th><%= t('models.clients.expiration_date') %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:document_id) %></th>
+      <th><%= model_class.human_attribute_name(:expiration_date) %></th>
       <th><%= t('actions.actions') %></th>
     </tr>
   </thead>

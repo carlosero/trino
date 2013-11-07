@@ -4,35 +4,35 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= t('models.clients.name') %>:</strong></dt>
-  <dd><%= @client.name %></dd>
-  <dt><strong><%= t('models.clients.document_id') %>:</strong></dt>
-  <dd><%= @client.document_id %></dd>
-  <dt><strong><%= t('models.clients.marital_status') %>:</strong></dt>
-  <dd><%= t("models.clients.marital_statuses.#{@client.marital_status}") %></dd>
-  <dt><strong><%= t('models.clients.email') %>:</strong></dt>
-  <dd><%= @client.email %></dd>
-  <dt><strong><%= t('models.clients.phone') %>:</strong></dt>
-  <dd><%= @client.phone %></dd>
-  <dt><strong><%= t("models.clients.status") %>:</strong></dt>
-  <dd><%= t("models.clients.statuses.#{@client.status}") %></dd>
-  <dt><strong><%= t('models.clients.agenda') %>:</strong></dt>
-  <dd><%= @client.agenda %></dd>
-  <dt><strong><%= t('models.clients.expiration_date') %>:</strong></dt>
-  <dd><%= @client.expiration_date %></dd>
-  <dt><strong><%= t('models.clients.comment') %>:</strong></dt>
-  <dd><%= @client.comment %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @client.name %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:document_id) %>:</strong></dt>
+  <dd><%= @client.document_id %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:marital_status) %>:</strong></dt>
+  <dd><%= t("activerecord.attributes.client.marital_statuses.#{@client.marital_status}") unless @client.marital_status.blank? %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @client.email %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @client.phone %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= t("activerecord.attributes.client.statuses.#{@client.status}") unless @client.status.blank? %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:agenda) %>:</strong></dt>
+  <dd><%= @client.agenda %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:expiration_date) %>:</strong></dt>
+  <dd><%= @client.expiration_date %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
+  <dd><%= @client.comment %>&nbsp;</dd>
   <% if @vehicle %>
     <hr/>
     <h3><%= t('titles.vehicle_data') %></h2>
-    <dt><strong><%= t('models.vehicles.brand') %>:</strong></dt>
-    <dd><%= @vehicle.brand %></dd>
-    <dt><strong><%= t('models.vehicles.model') %>:</strong></dt>
-    <dd><%= @vehicle.model %></dd>
-    <dt><strong><%= t('models.vehicles.version') %>:</strong></dt>
-    <dd><%= @vehicle.version %></dd>
-    <dt><strong><%= t('models.vehicles.year') %>:</strong></dt>
-    <dd><%= @vehicle.year %></dd>
+    <dt><strong><%= Vehicle.human_attribute_name(:brand) %>:</strong></dt>
+    <dd><%= @vehicle.brand %>&nbsp;</dd>
+    <dt><strong><%= Vehicle.human_attribute_name(:model) %>:</strong></dt>
+    <dd><%= @vehicle.model %>&nbsp;</dd>
+    <dt><strong><%= Vehicle.human_attribute_name(:version) %>:</strong></dt>
+    <dd><%= @vehicle.version %>&nbsp;</dd>
+    <dt><strong><%= Vehicle.human_attribute_name(:year) %>:</strong></dt>
+    <dd><%= @vehicle.year %>&nbsp;</dd>
   <% end %>
 </dl>
 
