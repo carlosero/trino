@@ -25,12 +25,22 @@ es:
           no_contact: "Sin Contactar"
           negotiate: "Por Negociar"
           contacted: "Contacto Efectivo"
+        state: "Estado"
+        afinity: "Afinidad"
 
       vehicle:
         brand: "Marca"
         model: "Modelo"
         version: "Versión"
         year: "Año"
+
+      user:
+        name: "Nombre"
+        email: "Correo"
+        kind_of_user: "Tipo de Usuario"
+        kinds_of_user:
+          admin: "Administrador"
+          seller: "Vendedor"
 
   time:
     formats:
@@ -49,9 +59,6 @@ es:
   titles:
     clients: 'Clientes'
     vehicle_data: 'Datos del Vehículo'
-
-
-
 
   dict:
     select_any: 'Seleccione'

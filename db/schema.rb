@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025033201) do
+ActiveRecord::Schema.define(:version => 20131108025519) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -24,7 +24,16 @@ ActiveRecord::Schema.define(:version => 20131025033201) do
     t.string   "document_id"
     t.string   "marital_status"
     t.datetime "expiration_date"
+    t.string   "state"
+    t.string   "afinity"
   end
+
+  create_table "clients_users", :id => false, :force => true do |t|
+    t.integer "client_id", :null => false
+    t.integer "user_id",   :null => false
+  end
+
+  add_index "clients_users", ["client_id", "user_id"], :name => "index_clients_users_on_client_id_and_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -40,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20131025033201) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "kind_of_user"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

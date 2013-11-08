@@ -1,0 +1,34 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%= 'Vendedores' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%=t 'actions.actions' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td>
+          <%= link_to t('actions.edit'),
+                      edit_user_path(user), :class => 'btn btn-mini' %>
+          <%= link_to t('actions.destroy'),
+                      user_path(user),
+                      :method => :delete,
+                      :data => { :confirm => t('actions.confirm') },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('actions.new'),
+            new_user_path,
+            :class => 'btn btn-primary' %>

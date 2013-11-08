@@ -1,6 +1,7 @@
 class Client < ActiveRecord::Base
   # devise :database_authenticatable, :registerable, :recoverable
   has_one :vehicle
+  has_and_belongs_to_many :users
   accepts_nested_attributes_for :vehicle
 
   before_destroy { |c| c.vehicle.destroy }

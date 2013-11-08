@@ -1,5 +1,6 @@
 Trino::Application.routes.draw do
   resources :clients
+  resources :users
 
   devise_for :users
 
