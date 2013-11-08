@@ -42,6 +42,24 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= select_tag "client[state]",
+          options_for_select(STATES, @client.state),
+          :prompt => t("dict.select_any")
+      %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :afinity, :class => 'control-label' %>
+    <div class="controls">
+      <%= select_tag "client[afinity]",
+          options_for_select(Client::AFINITY_FOR_SELECT, @client.afinity),
+          :prompt => t("dict.select_any")
+      %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :agenda, :class => 'control-label' %>
     <div class="controls date" id="datetimepicker" data-date-format="dd-mm-yyyy HH:ii p">
       <%= f.text_field :agenda, :class => 'text_field form_datetime', :value => @client.agenda %>

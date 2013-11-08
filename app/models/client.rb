@@ -28,6 +28,12 @@ class Client < ActiveRecord::Base
     [I18n.t("activerecord.attributes.client.marital_statuses.widowed"),    'widowed'   ],
   ]
 
+  AFINITY_FOR_SELECT = [
+    ['Objeto Uno',     'Objeto Uno'    ],
+    ['Objeto Dos',     'Objeto Dos'    ],
+    ['Objeto Tres',    'Objeto Tres'   ],
+  ]
+
   def agenda
     read_attribute(:agenda).strftime('%d-%m-%Y %I:%M %P') if read_attribute(:agenda)
   end
