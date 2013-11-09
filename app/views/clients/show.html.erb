@@ -17,9 +17,9 @@
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= t("activerecord.attributes.client.statuses.#{@client.status}") unless @client.status.blank? %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:agenda) %>:</strong></dt>
-  <dd><%= @client.agenda %>&nbsp;</dd>
+  <dd><%= format_date(@client.agenda) %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:expiration_date) %>:</strong></dt>
-  <dd><%= @client.expiration_date %>&nbsp;</dd>
+  <dd><%= format_date(@client.expiration_date) %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
   <dd><%= @client.state %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:afinity) %>:</strong></dt>

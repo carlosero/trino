@@ -11,14 +11,3 @@
 //= require bootstrap-datetimepicker.min
 //= require bootstrap-datetimepicker.es
 //= require_tree .
-
-$(document).ready(function(){
-  $('#datetimepicker, #datetimepicker2').datetimepicker({
-    language: 'es',
-    autoclose: 1,
-    todayHighlight: 1,
-    todayBtn:  1,
-    showMeridian: 1,
-    startDate: "01-01-2013 12:00 am",
-  })
-});

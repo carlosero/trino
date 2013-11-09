@@ -9,12 +9,12 @@ gem 'devise'
 gem 'json'
 gem "twitter-bootstrap-rails"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-
+gem 'coffee-rails', "~> 3.1.0"
+gem "simple_form"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   # gem 'sass-rails', "  ~> 3.1.0"
-  # gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem "therubyracer"
 end

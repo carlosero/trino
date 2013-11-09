@@ -2,6 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 es:
+
   activerecord:
     attributes:
       client:
@@ -43,8 +44,12 @@ es:
           seller: "Vendedor"
 
   time:
+    am: "am"
+    pm: "pm"
     formats:
       default: 'Fecha'
+      long: "%d-%m-%Y %I:%M %P"
+      short: "%d-%m-%Y %I:%M"
 
   actions:
     new: "Nuevo"

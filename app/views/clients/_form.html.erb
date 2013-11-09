@@ -1,115 +1,23 @@
-<%= form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :document_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :document_id, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :marital_status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select(:marital_status,
-                options_for_select(Client::MARITAL_STATUS, @client.marital_status),
-                :prompt => t("dict.select_any"))
-      %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :phone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :phone, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
-    <div class="controls">
-      <%= select_tag "client[status]",
-          options_for_select(Client::STATUS_FOR_SELECT, @client.status),
-          :prompt => t("dict.select_any")
-      %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :state, :class => 'control-label' %>
-    <div class="controls">
-      <%= select_tag "client[state]",
-          options_for_select(STATES, @client.state),
-          :prompt => t("dict.select_any")
-      %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :afinity, :class => 'control-label' %>
-    <div class="controls">
-      <%= select_tag "client[afinity]",
-          options_for_select(Client::AFINITY_FOR_SELECT, @client.afinity),
-          :prompt => t("dict.select_any")
-      %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :agenda, :class => 'control-label' %>
-    <div class="controls date" id="datetimepicker" data-date-format="dd-mm-yyyy HH:ii p">
-      <%= f.text_field :agenda, :class => 'text_field form_datetime', :value => @client.agenda %>
-      <span class="add-on" style="cursor: pointer;"><i class="icon-th"></i></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :expiration_date, :class => 'control-label' %>
-    <div class="controls date" id="datetimepicker2" data-date-format="dd-mm-yyyy HH:ii p">
-      <%= f.text_field :expiration_date, :class => 'text_field form_datetime', :value => @client.expiration_date %>
-      <span class="add-on"  style="cursor: pointer;"><i class="icon-th"></i></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :comment, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :comment, :class => 'text_area', :rows => "3" %>
-    </div>
-  </div>
+<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :document_id %>
+      <%= f.input :marital_status, :collection => Client::MARITAL_STATUS, :prompt => t("dict.select_any") %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <%= f.input :status, :collection => Client::STATUS_FOR_SELECT, :prompt => t("dict.select_any") %>
+      <%= f.input :state, :collection => STATES, :prompt => t("dict.select_any") %>
+      <%= f.input :afinity, :collection => Client::AFINITY_FOR_SELECT, :prompt => t("dict.select_any") %>
+      <%= f.input :agenda, :as => :datetime_picker, :input_html => { :value => format_date(f.object.agenda) } %>
+      <%= f.input :expiration_date, :as => :datetime_picker, :input_html => { :value => format_date(f.object.expiration_date) } %>
+      <%= f.input :comment,  :input_html => { :rows => "3" } %>
   <hr/>
   <h3><%= t('titles.vehicle_data') %></h2>
-  <%= f.fields_for :vehicle do |fc| %>
-    <div class="control-group">
-      <%= fc.label t('activerecord.attributes.vehicle.brand'), :class => 'control-label' %>
-      <div class="controls">
-        <%= fc.text_field :brand, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= fc.label t('activerecord.attributes.vehicle.model'), :class => 'control-label' %>
-      <div class="controls">
-        <%= fc.text_field :model, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= fc.label t('activerecord.attributes.vehicle.version'), :class => 'control-label' %>
-      <div class="controls">
-        <%= fc.text_field :version, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= fc.label t('activerecord.attributes.vehicle.year'), :class => 'control-label' %>
-      <div class="controls">
-        <%= fc.select :year,
-            options_for_select(Vehicle.years_for_select, @client.vehicle.year),
-            :prompt => t("dict.select_any")
-        %>
-      </div>
-    </div>
 
+  <%= f.simple_fields_for :vehicle do |fc| %>
+    <%= fc.input :brand %>
+    <%= fc.input :model %>
+    <%= fc.input :version %>
+    <%= fc.input :year, :collection => Vehicle.years_for_select, :prompt => t("dict.select_any") %>
   <% end %>
 
   <div class="form-actions">

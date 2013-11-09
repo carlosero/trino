@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   # devise :database_authenticatable, :registerable, :recoverable
   has_one :vehicle
-  has_and_belongs_to_many :users
+  belongs_to :user
   accepts_nested_attributes_for :vehicle
 
   before_destroy { |c| c.vehicle.destroy }
@@ -35,13 +35,6 @@ class Client < ActiveRecord::Base
     ['Objeto Tres',    'Objeto Tres'   ],
   ]
 
-  def agenda
-    read_attribute(:agenda).strftime('%d-%m-%Y %I:%M %P') if read_attribute(:agenda)
-  end
-
-  def expiration_date
-    read_attribute(:expiration_date).strftime('%d-%m-%Y %I:%M %P') if read_attribute(:expiration_date)
-  end
 
 
 end
