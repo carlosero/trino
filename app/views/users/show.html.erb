@@ -1,15 +1,16 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%= @user.admin? ? 'Administrador' : 'Vendedor' %></h1>
+  <h1><%=t model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @user.email %></dd>
+  <dd><%= @user.email %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @user.name %></dd>
+  <dd><%= @user.name %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:kind_of_user) %>:</strong></dt>
-  <dd><%= @user.kind_of_user %></dd>
+  <%- kind_of_user = @user.kind_of_user ? I18n.t("activerecord.attributes.user.kinds_of_user.#{@user.kind_of_user}") : "" -%>
+  <dd><%= kind_of_user %>&nbsp;</dd>
 </dl>
 
 <div class="form-actions">

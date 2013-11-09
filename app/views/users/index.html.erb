@@ -1,13 +1,13 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%= 'Vendedores' %></h1>
+  <h1><%=t model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:clients) %></th>
+      <th><%= model_class.human_attribute_name(:kind_of_user) %></th>
       <th><%=t 'actions.actions' %></th>
     </tr>
   </thead>
@@ -16,7 +16,8 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
-        <td><%= user.clients_count %></td>
+        <%- kind_of_user = user.kind_of_user ? I18n.t("activerecord.attributes.user.kinds_of_user.#{user.kind_of_user}") : "" -%>
+        <td><%= kind_of_user %></td>
         <td>
           <%= link_to t('actions.view'),
                       user_path(user), :class => 'btn btn-mini' %>

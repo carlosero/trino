@@ -1,5 +1,5 @@
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
-      <%= f.association :seller %>
+      <%= f.association :seller, :prompt => t("dict.select_any") %>
       <%= f.input :name %>
       <%= f.input :document_id %>
       <%= f.input :marital_status, :collection => Client::MARITAL_STATUS, :prompt => t("dict.select_any") %>
@@ -22,7 +22,7 @@
   <% end %>
 
   <div class="form-actions">
-    <%= f.submit t('actions.save'), :class => 'btn btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('actions.cancel'),
                 clients_path, :class => 'btn' %>
   </div>

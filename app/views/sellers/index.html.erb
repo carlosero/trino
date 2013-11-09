@@ -1,0 +1,39 @@
+<%- model_class = Seller -%>
+<div class="page-header">
+  <h1><%=t model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<%= render :partial => "/sellers/filter" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:clients) %></th>
+      <th><%=t 'actions.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= link_to seller.name, seller_path(seller) %></td>
+        <td><%= seller.email %></td>
+        <td><%= seller.clients_count %></td>
+        <td>
+          <%= link_to t('actions.view'),
+                      seller_path(seller), :class => 'btn btn-mini' %>
+          <%= link_to t('actions.edit', :default => t("helpers.links.edit")),
+                      edit_seller_path(seller), :class => 'btn btn-mini' %>
+          <%= link_to t('actions.destroy', :default => t("helpers.links.destroy")),
+                      seller_path(seller),
+                      :method => :delete,
+                      :data => { :confirm => t('actions.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('actions.new', :default => t("helpers.links.new")),
+            new_seller_path,
+            :class => 'btn btn-primary' %>

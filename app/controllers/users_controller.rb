@@ -10,15 +10,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def sellers
-    @users = User.sellers
-    
-    respond_to do |format|
-      format.html
-      format.json { render :json => @users }
-    end
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show
@@ -53,7 +44,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, :notice => 'Vendedor creado satisfactoriamente.' }
+        format.html { redirect_to @user, :notice => t('activerecord.successful.messages.created', :model => User.model_name.human) }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -69,7 +60,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, :notice => 'Vendedor actualizado satisfactoriamente.' }
+        format.html { redirect_to @user, :notice => t('activerecord.successful.messages.updated', :model => User.model_name.human) }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -88,5 +79,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :ok }
     end
+  end
+
+  # ###### #
+  # CUSTOM #
+  # ###### #
+  def my_account
   end
 end

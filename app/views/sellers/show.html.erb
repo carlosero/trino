@@ -1,0 +1,32 @@
+<%- model_class = Seller -%>
+<div class="page-header">
+  <h1><%=t model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @seller.email %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @seller.name %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:clients) %>:</strong></dt>
+  <dd>
+    <%- if @seller.clients.any? -%>
+      <%- @seller.clients.each do |client| -%>
+        <li><%= link_to client.name, client_path(client) %></li>
+      <%- end -%>&nbsp;</dd>
+    <%- else -%>
+      <%= t("dict.unassigned") %>
+    <%- end -%>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('actions.back', :default => t("helpers.links.back")),
+              sellers_path, :class => 'btn'  %>
+  <%= link_to t('actions.edit', :default => t("helpers.links.edit")),
+              edit_seller_path(@seller), :class => 'btn' %>
+  <%= link_to t('actions.destroy', :default => t("helpers.links.destroy")),
+              seller_path(@seller),
+              :method => 'delete',
+              :data => { :confirm => t('actions.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

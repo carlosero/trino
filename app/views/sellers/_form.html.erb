@@ -1,0 +1,13 @@
+<%= simple_form_for @seller, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :email %>
+  <%= f.input :name %>
+  <%- clients = Client.asignable_for_seller(@seller.id) -%>
+  <%- if clients.any? -%>
+    <%= f.association :clients, :as => :check_boxes, :collection => clients %>
+  <%- end -%>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('actions.cancel', :default => t("helpers.links.cancel")),
+                sellers_path, :class => 'btn' %>
+  </div>
+<% end %>

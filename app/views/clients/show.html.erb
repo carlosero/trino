@@ -1,11 +1,11 @@
 <%- model_class = Client -%>
 <div class="page-header">
-  <h1>Cliente</h1>
+  <h1><%=t model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:seller) %>:</strong></dt>
-  <dd><%= @client.is_assigned? ? @client.seller.name : t("dict.unassigned") %>&nbsp;</dd>
+  <dd><%= @client.assigned? ? link_to(@client.seller.name, seller_path(@client.seller)) : t("dict.unassigned") %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @client.name %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:document_id) %>:</strong></dt>

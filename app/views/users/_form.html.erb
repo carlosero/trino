@@ -1,13 +1,10 @@
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :email %>
   <%= f.input :name %>
-  <%- clients = Client.asignable_for_user(@user.id) -%>
-  <%- if clients.any? -%>
-    <%= f.association :clients, :as => :check_boxes, :collection => clients %>
-  <%- end -%>
+  <%= f.input :kind_of_user, :collection => User::KINDS_OF_USER, :prompt => t("dict.select_any") %>
 
   <div class="form-actions">
-    <%= f.submit t('actions.save'), :class => 'btn btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('actions.cancel'),
                 users_path, :class => 'btn' %>
   </div>

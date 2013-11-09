@@ -2,8 +2,29 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 es:
-
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: 'No puede dejar estar en blanco'
+            password:
+              too_short: 'Contraseña muy corta, debe tener al menos 4 caracteres'
+              confirmation: 'Debe introducir la confirmación de la contraseña'
+              blank: "Debe introducir una contraseña, con mínimo 4 caracteres"
+        seller:
+          attributes:
+            email:
+              blank: "Debe ingresar un correo electrónico"
+    successful:
+      messages:
+        created: "El %{model} fue creado existosamente."
+        updated: "El %{model} fue actualizado existosamente."
+    models:
+      seller: "Vendedor"
+      user: "Usuario"
+      client: "Cliente"
     attributes:
       client:
         name: "Nombre"
@@ -41,6 +62,18 @@ es:
         email: "Correo"
         kind_of_user: "Tipo de Usuario"
         clients: "Clientes Asignados"
+        password: "Contraseña"
+        password_confirmation: "Confirmar Contraseña"
+        current_password: "Contraseña Actual"
+        kinds_of_user:
+          admin: "Administrador"
+          seller: "Vendedor"
+
+      seller:
+        name: "Nombre"
+        email: "Correo"
+        kind_of_user: "Tipo de Usuario"
+        clients: "Clientes Asignados"
         kinds_of_user:
           admin: "Administrador"
           seller: "Vendedor"
@@ -63,11 +96,18 @@ es:
     save: "Guardar"
     back: "Volver"
     view: "Ver"
+    cancel_account: "Cancelar mi cuenta"
 
   titles:
-    clients: 'Clientes'
     vehicle_data: 'Datos del Vehículo'
 
   dict:
     select_any: 'Seleccione'
     unassigned: "Ninguno asignado"
+
+  helpers:
+    clean_search: 'Limpiar Búsqueda'
+    new: "Nuevo"
+    submit:
+      create: "Crear un %{model}"
+      update: "Guardar cambios"

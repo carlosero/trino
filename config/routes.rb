@@ -1,9 +1,9 @@
 Trino::Application.routes.draw do
   resources :clients
+  resources :sellers
+  # get 'my_account', :to => 'devise/registrations#edit', :as => :my_account
+  devise_for :users, :path_prefix => 'my'
   resources :users
-  get 'sellers', :to => 'users#sellers', :as => :sellers
-
-  devise_for :users
 
   root :to => 'clients#index'
   # The priority is based upon order of creation:
