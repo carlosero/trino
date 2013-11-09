@@ -14,6 +14,7 @@ es:
         agenda: "Agenda"
         comment: "Comentarios Generales"
         marital_status: "Estado Civil"
+        seller: 'Vendedor'
         marital_statuses:
           single: "Soltero"
           married: "Casado"
@@ -39,6 +40,7 @@ es:
         name: "Nombre"
         email: "Correo"
         kind_of_user: "Tipo de Usuario"
+        clients: "Clientes Asignados"
         kinds_of_user:
           admin: "Administrador"
           seller: "Vendedor"
@@ -60,6 +62,7 @@ es:
     cancel: "Cancelar"
     save: "Guardar"
     back: "Volver"
+    view: "Ver"
 
   titles:
     clients: 'Clientes'
@@ -67,3 +70,4 @@ es:
 
   dict:
     select_any: 'Seleccione'
+    unassigned: "Ninguno asignado"

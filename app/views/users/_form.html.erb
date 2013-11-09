@@ -1,7 +1,10 @@
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :email %>
   <%= f.input :name %>
-  <%= f.input :clients %>
+  <%- clients = Client.asignable_for_user(@user.id) -%>
+  <%- if clients.any? -%>
+    <%= f.association :clients, :as => :check_boxes, :collection => clients %>
+  <%- end -%>
 
   <div class="form-actions">
     <%= f.submit t('actions.save'), :class => 'btn btn-primary' %>

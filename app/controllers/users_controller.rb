@@ -10,6 +10,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def sellers
+    @users = User.sellers
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => @users }
+    end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

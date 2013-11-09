@@ -1,8 +1,10 @@
 class Client < ActiveRecord::Base
   # devise :database_authenticatable, :registerable, :recoverable
   has_one :vehicle
-  belongs_to :user
+  belongs_to :seller, :class_name => "User", :foreign_key => "user_id"
   accepts_nested_attributes_for :vehicle
+  scope :unasigned, where(:user_id => nil)
+  default_scope order('name ASC')
 
   before_destroy { |c| c.vehicle.destroy }
 
@@ -35,6 +37,12 @@ class Client < ActiveRecord::Base
     ['Objeto Tres',    'Objeto Tres'   ],
   ]
 
+  def self.asignable_for_user(user_id)
+    where("user_id = ? or user_id is NULL", user_id)
+  end
 
+  def is_assigned?
+    !!seller
+  end
 
 end

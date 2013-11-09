@@ -1,6 +1,6 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%= 'Vendedor' %></h1>
+  <h1><%= @user.admin? ? 'Administrador' : 'Vendedor' %></h1>
 </div>
 
 <dl class="dl-horizontal">

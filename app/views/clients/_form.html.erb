@@ -1,4 +1,5 @@
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.association :seller %>
       <%= f.input :name %>
       <%= f.input :document_id %>
       <%= f.input :marital_status, :collection => Client::MARITAL_STATUS, :prompt => t("dict.select_any") %>

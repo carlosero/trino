@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
   has_many :clients
+  accepts_nested_attributes_for :clients
+  scope :sellers, where(:kind_of_user => 'seller')
+  default_scope order('name ASC')
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -8,7 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :client_ids
   before_save :set_default_kind_of_user
 
   KINDS_OF_USER = [
@@ -27,5 +30,9 @@ class User < ActiveRecord::Base
 
   def seller?
     kind_of_user == 'seller'
+  end
+
+  def clients_count
+    clients.count
   end
 end

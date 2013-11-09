@@ -1,6 +1,7 @@
 Trino::Application.routes.draw do
   resources :clients
   resources :users
+  get 'sellers', :to => 'users#sellers', :as => :sellers
 
   devise_for :users
 
