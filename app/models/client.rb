@@ -41,6 +41,14 @@ class Client < ActiveRecord::Base
     where("user_id = ? or user_id is NULL", user_id)
   end
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ? or document_id LIKE ?', "%#{search}%", "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
   def is_assigned?
     !!seller
   end
