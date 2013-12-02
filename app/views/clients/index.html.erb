@@ -8,17 +8,18 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:document_id) %></th>
-      <th><%= model_class.human_attribute_name(:expiration_date) %></th>
+      <th><%= model_class.human_attribute_name(:agenda) %></th>
       <th><%= model_class.human_attribute_name(:seller) %></th>
       <th><%= t('actions.actions') %></th>
     </tr>
   </thead>
   <tbody>
     <% @clients.each do |client| %>
-      <tr>
+    <%- tr_class = client.agenda_is_old? ? "tr-red-background" : "" -%>
+      <tr class="<%= tr_class %>">
         <td><%= link_to client.name, client_path(client) %></td>
         <td><%= client.document_id %></td>
-        <td><%= client.expiration_date %></td>
+        <td><%= format_date(client.agenda) %></td>
         <td><%= client.assigned? ? client.seller.name : t("dict.unassigned") %></td>
         <td>
           <%= link_to t('actions.view'),

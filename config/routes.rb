@@ -1,6 +1,10 @@
 Trino::Application.routes.draw do
   resources :clients
-  resources :sellers
+  resources :sellers do
+    collection do
+      get 'external_links', :as => :external_links
+    end
+  end
   # get 'my_account', :to => 'devise/registrations#edit', :as => :my_account
   devise_for :users, :path_prefix => 'my'
   resources :users

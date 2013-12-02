@@ -81,4 +81,11 @@ class SellersController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # ++++++++++++++ #
+  # CUSTOM ACTIONS #
+  # -------------- #
+
+  def external_links
+  end
 end

@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
   belongs_to :seller, :foreign_key => "user_id"
   accepts_nested_attributes_for :vehicle
   scope :unasigned, where(:user_id => nil)
-  default_scope order('name ASC')
+  default_scope order('agenda DESC')
 
   before_destroy { |c| c.vehicle.destroy }
 
@@ -51,6 +51,10 @@ class Client < ActiveRecord::Base
 
   def assigned?
     !!seller
+  end
+
+  def agenda_is_old?
+    agenda && agenda.to_date == Date.today.to_date
   end
 
 end

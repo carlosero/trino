@@ -1,0 +1,23 @@
+/* for showing expired clients */
+tr.tr-red-background td {
+  background-color: rgb(255, 219, 219) !important;
+}
+
+div.external-links img.logo-140 {
+  width: 140px;
+}
+
+
+div.external-links img.logo-170 {
+  width: 170px;
+}
+
+
+div.external-links img.logo-240 {
+  width: 240px;
+}
+
+
+div.external-links h3{
+  color: rgb(116, 116, 116);
+}
