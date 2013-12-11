@@ -32,9 +32,9 @@ class Client < ActiveRecord::Base
   ]
 
   AFINITY_FOR_SELECT = [
-    ['Objeto Uno',     'Objeto Uno'    ],
-    ['Objeto Dos',     'Objeto Dos'    ],
-    ['Objeto Tres',    'Objeto Tres'   ],
+    [I18n.t("activerecord.attributes.client.afinities.external_relations_minister"), 'external_relations_minister' ],
+    [I18n.t("activerecord.attributes.client.afinities.normal"),                      'normal'                      ],
+    [I18n.t("activerecord.attributes.client.afinities.utac"),                        'utac'                        ],
   ]
 
   def self.asignable_for_seller(user_id)

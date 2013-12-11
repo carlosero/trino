@@ -25,7 +25,7 @@
   <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
   <dd><%= @client.state %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:afinity) %>:</strong></dt>
-  <dd><%= @client.afinity %>&nbsp;</dd>
+  <dd><%= I18n.t("activerecord.attributes.client.afinities.#{@client.afinity}") %>&nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
   <dd><%= @client.comment %>&nbsp;</dd>
   <% if @vehicle %>

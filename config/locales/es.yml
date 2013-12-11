@@ -31,7 +31,7 @@ es:
         document_id: "Cédula"
         email: "Correo"
         phone: "Teléfono"
-        status: "Estado"
+        status: "Estado del cliente"
         agenda: "Agenda"
         comment: "Comentarios Generales"
         marital_status: "Estado Civil"
@@ -50,6 +50,10 @@ es:
           contacted: "Contacto Efectivo"
         state: "Estado"
         afinity: "Afinidad"
+        afinities:
+          external_relations_minister: "Cliente Ministerio de Relaciones Exteriores"
+          normal: "Cliente Normal"
+          utac: "Cliente Utac"
 
       vehicle:
         brand: "Marca"
