@@ -10,30 +10,31 @@
       <th><%= model_class.human_attribute_name(:document_id) %></th>
       <th><%= model_class.human_attribute_name(:agenda) %></th>
       <th><%= model_class.human_attribute_name(:seller) %></th>
-      <th><%= t('actions.actions') %></th>
+      <th id="action-column"><%= t('actions.actions') %></th>
     </tr>
   </thead>
   <tbody>
     <% @clients.each do |client| %>
     <%- tr_class = client.agenda_is_old? ? "tr-red-background" : "" -%>
       <tr class="<%= tr_class %>">
-        <td><%= link_to client.name, client_path(client) %></td>
+        <td><%= client.name %></td>
         <td><%= client.document_id %></td>
         <td><%= format_date(client.agenda) %></td>
         <td><%= client.assigned? ? client.seller.name : t("dict.unassigned") %></td>
-        <td>
+        <td id="action-column">
           <%= link_to t('actions.view'),
-                      client_path(client), :class => 'btn btn-mini' %>
-          <%= link_to t('actions.edit'), edit_client_path(client), :class => 'btn btn-mini' %>
+                      client_path(client), :class => 'btn btn-mini', :id => 'action-button' %>
+          <%= link_to t('actions.edit'), edit_client_path(client), :class => 'btn btn-mini', :id => 'action-button' %>
           <%= link_to t('actions.destroy'),
                       client_path(client),
                       :method => :delete,
                       :data => { :confirm => t('actions.confirm') },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger',
+                      :id => 'action-button' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('actions.new'), new_client_path, :class => 'btn btn-primary' %>
+<%= link_to t('actions.new'), new_client_path, :class => 'btn btn-primary', :id => 'action-button' %>
